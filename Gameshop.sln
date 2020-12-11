@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gameshop_AdoNet", "Gameshop_AdoNet\Gameshop_AdoNet.csproj", "{1F0FAE15-C41E-4DD8-B040-068C38C105E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_AdoNet", "Gameshop_AdoNet\Gameshop_AdoNet.csproj", "{1F0FAE15-C41E-4DD8-B040-068C38C105E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_Dapper", "Gameshop_Dapper\Gameshop_Dapper.csproj", "{CADF3100-B096-4928-8150-150069855E76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_EFCore", "Gameshop_EFCore\Gameshop_EFCore.csproj", "{5D61AAC9-7689-4E39-8A36-F3F543CF5AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B350BCE1-D619-4FE5-910A-DD2E4BC3F120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B350BCE1-D619-4FE5-910A-DD2E4BC3F120}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B350BCE1-D619-4FE5-910A-DD2E4BC3F120}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B350BCE1-D619-4FE5-910A-DD2E4BC3F120}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F0FAE15-C41E-4DD8-B040-068C38C105E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F0FAE15-C41E-4DD8-B040-068C38C105E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F0FAE15-C41E-4DD8-B040-068C38C105E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F0FAE15-C41E-4DD8-B040-068C38C105E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADF3100-B096-4928-8150-150069855E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADF3100-B096-4928-8150-150069855E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADF3100-B096-4928-8150-150069855E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADF3100-B096-4928-8150-150069855E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D61AAC9-7689-4E39-8A36-F3F543CF5AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D61AAC9-7689-4E39-8A36-F3F543CF5AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D61AAC9-7689-4E39-8A36-F3F543CF5AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D61AAC9-7689-4E39-8A36-F3F543CF5AE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

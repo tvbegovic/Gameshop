@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace Gameshop_AdoNet.Db
@@ -8,7 +9,24 @@ namespace Gameshop_AdoNet.Db
 	{
 		public List<Genre> GetAll()
 		{
-			return null;
+			var rezultat = new List<Genre>();
+			using (var conn = new SqlConnection(Properties.Settings.Default.connString))
+			{
+				conn.Open();
+				var cmd = new SqlCommand("SELECT * FROM Genre", conn);
+				var dr = cmd.ExecuteReader();
+				while (dr.Read())
+				{
+					var vrsta = new Genre
+					{
+						Id = dr.GetInt32(0),
+						Name = dr.GetString(1)
+					};
+					rezultat.Add(vrsta);
+				}
+				dr.Close();
+			}
+			return rezultat;
 		}
 	}
 }

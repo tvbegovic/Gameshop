@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gameshop_AdoNet.Db
+namespace Gameshop_Dapper.Db
 {
-	//Ovdje pastati kod klasa dobivenih SQL skriptom
 	public class Company
 	{
 		public int Id { get; set; }
@@ -23,8 +22,7 @@ namespace Gameshop_AdoNet.Db
 		public int? IdPublisher { get; set; }
 		public decimal? Price { get; set; }
 		public int? IdDeveloper { get; set; }
-		public DateTime? ReleaseDate { get; set; }
-		public string Image { get; set; }
+		public DateTime? ReleaseDate { get; set; }				
 	}
 	public class OrderDetail
 	{
