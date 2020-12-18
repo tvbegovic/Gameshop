@@ -21,6 +21,10 @@ namespace Gameshop_Backend.Db
 			modelBuilder.Entity<Genre>().ToTable("Genre");
 			modelBuilder.Entity<Company>().ToTable("Company");
 			modelBuilder.Entity<Game>().ToTable("Game");
+
+			modelBuilder.Entity<Game>().HasOne(g => g.Genre).WithMany().HasForeignKey(g => g.IdGenre);
+			modelBuilder.Entity<Game>().HasOne(g => g.Publisher).WithMany().HasForeignKey(g => g.IdPublisher);
+			modelBuilder.Entity<Game>().HasOne(g => g.Developer).WithMany().HasForeignKey(g => g.IdDeveloper);
 		}
 	}
 }
