@@ -42,6 +42,9 @@ namespace Gameshop_Backend
 				app.UseDeveloperExceptionPage();
 			}
 
+			app.UseDefaultFiles();
+			app.UseStaticFiles();
+			
 			app.UseRouting();
 
 			app.UseAuthorization();

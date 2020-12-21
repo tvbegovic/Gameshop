@@ -44,6 +44,9 @@ namespace Gameshop_Backend.Db
 		public int? IdEmployee { get; set; }
 		public DateTime? DateOrdered { get; set; }
 		public DateTime? DateSent { get; set; }
+
+		public User User { get; set; }
+		public List<OrderDetail> Details { get; set; }
 	}
 	public class Employee
 	{
@@ -58,7 +61,9 @@ namespace Gameshop_Backend.Db
 		public string Firstname { get; set; }
 		public string Lastname { get; set; }
 		public string Address { get; set; }
-		public int? IdCity { get; set; }
+		public string City { get; set; }
 		public string Email { get; set; }
+		public string Password { get; set; }
+		public bool? Admin { get; set; }
 	}
 }
