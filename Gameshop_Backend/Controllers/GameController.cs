@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gameshop_Backend.Db;
 using Microsoft.EntityFrameworkCore;
+using Gameshop_Backend.Models;
 
 namespace Gameshop_Backend.Controllers
 {
@@ -49,6 +50,39 @@ namespace Gameshop_Backend.Controllers
 		{
 			return context.Games.Include(g => g.Genre).Include(g => g.Publisher)
 				.Where(g => g.Title.Contains(text) || g.Genre.Name.Contains(text) || g.Publisher.Name.Contains(text)).ToList();
+		}
+
+		[HttpGet("listModel")]
+		public GameListModel GetListModel()
+		{
+			return new GameListModel
+			{
+				Companies = context.Companies.ToList(),
+				Genres = context.Genres.ToList(),
+				Games = context.Games.ToList()
+			};
+		}
+
+		[HttpPost("")]
+		public Game Create(Game game)
+		{
+			context.Games.Add(game);
+			context.SaveChanges();
+			return game;
+		}
+
+		[HttpPut("")]
+		public Game Update(Game game)
+		{
+			context.Games.Update(game);
+			context.SaveChanges();
+			return game;
+		}
+
+		[HttpDelete("{id}")]
+		public void Delete(int id)
+		{
+			context.Database.ExecuteSqlInterpolated($"DELETE FROM Game WHERE id = {id}");
 		}
 	}
 }
