@@ -29,6 +29,7 @@ namespace Gameshop_Backend.Db
 			modelBuilder.Entity<Game>().HasOne(g => g.Genre).WithMany().HasForeignKey(g => g.IdGenre);
 			modelBuilder.Entity<Game>().HasOne(g => g.Publisher).WithMany().HasForeignKey(g => g.IdPublisher);
 			modelBuilder.Entity<Game>().HasOne(g => g.Developer).WithMany().HasForeignKey(g => g.IdDeveloper);
+			modelBuilder.Entity<Game>().Ignore(g => g.FileId);
 
 			modelBuilder.Entity<Order>().HasOne(o => o.User).WithMany().HasForeignKey(o => o.IdUser);
 			modelBuilder.Entity<Order>().HasMany(o => o.Details).WithOne().HasForeignKey(d => d.IdOrder);

@@ -158,7 +158,12 @@ SOFTWARE.
 
 
 
+ngx-bootstrap/datepicker
+
 ngx-chips
+MIT
+
+ngx-uploader
 MIT
 
 rxjs

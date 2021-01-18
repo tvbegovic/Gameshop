@@ -12,4 +12,11 @@ namespace Gameshop_Backend.Models
 		public List<Company> Companies { get; set; }
 		public List<Game> Games { get; set; }
 	}
+
+	public class GameEditModel
+	{
+		public List<Genre> Genres { get; set; }
+		public List<Company> Companies { get; set; }
+		public Game Game { get; set; }
+	}
 }

@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Gameshop_Backend/wwwroot/assets/gameimages
+/Gameshop_Backend/wwwroot/assets/tmpImages
+/Gameshop_Backend/wwwroot/wwwroot - ver2.zip

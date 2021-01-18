@@ -8,6 +8,8 @@ using Gameshop_Backend.Db;
 using Microsoft.EntityFrameworkCore;
 using Gameshop_Backend.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Gameshop_Backend.Controllers
 {
@@ -16,10 +18,12 @@ namespace Gameshop_Backend.Controllers
 	public class GameController : ControllerBase
 	{
 		private readonly MyDbContext context;
+		private readonly IWebHostEnvironment webHostEnvironment;
 
-		public GameController(MyDbContext context)
+		public GameController(MyDbContext context, IWebHostEnvironment webHostEnvironment)
 		{
 			this.context = context;
+			this.webHostEnvironment = webHostEnvironment;
 		}
 
 		[HttpGet("genres")]
@@ -69,6 +73,7 @@ namespace Gameshop_Backend.Controllers
 		[Authorize]
 		public Game Create(Game game)
 		{
+			HandleFile(game);
 			context.Games.Add(game);
 			context.SaveChanges();
 			return game;
@@ -78,6 +83,7 @@ namespace Gameshop_Backend.Controllers
 		[Authorize]
 		public Game Update(Game game)
 		{
+			HandleFile(game);
 			context.Games.Update(game);
 			context.SaveChanges();
 			return game;
@@ -88,6 +94,48 @@ namespace Gameshop_Backend.Controllers
 		public void Delete(int id)
 		{
 			context.Database.ExecuteSqlInterpolated($"DELETE FROM Game WHERE id = {id}");
+		}
+
+		[HttpGet("editModel/{id}")]
+		[Authorize]
+		public GameEditModel GetEditModel(int id)
+		{
+			return new GameEditModel
+			{
+				Companies = context.Companies.ToList(),
+				Game = id > 0 ? context.Games.FirstOrDefault(g => g.Id == id) : new Game(),
+				Genres = context.Genres.ToList()
+			};
+		}
+
+		[HttpPost("uploadImage")]
+		[Authorize]
+		public void UploadImage(string id)
+		{
+			var file = Request.Form.Files[0];
+			if(file.Length > 0)
+			{
+				var filePath = Path.Combine(webHostEnvironment.WebRootPath, "assets\\tmpImages", $"{id}.jpg");
+				var sw = new StreamWriter(filePath);
+				file.CopyTo(sw.BaseStream);
+				sw.Close();
+
+			}
+		}
+
+		private void HandleFile(Game game)
+		{
+			if(!string.IsNullOrEmpty(game.FileId))
+			{
+				var tmpFilePath = Path.Combine(webHostEnvironment.WebRootPath, "assets\\tmpImages", $"{game.FileId}.jpg");
+				if(System.IO.File.Exists(tmpFilePath))
+				{
+					var finalFilePath = Path.Combine(webHostEnvironment.WebRootPath, "assets\\gameImages", $"{game.FileId}.jpg");
+					System.IO.File.Copy(tmpFilePath, finalFilePath);
+					game.image = $"{game.FileId}.jpg";
+					System.IO.File.Delete(tmpFilePath);
+				}
+			}
 		}
 	}
 }
