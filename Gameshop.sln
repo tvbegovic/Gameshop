@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_Dapper", "Gameshop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_EFCore", "Gameshop_EFCore\Gameshop_EFCore.csproj", "{5D61AAC9-7689-4E39-8A36-F3F543CF5AE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gameshop_Backend", "Gameshop_Backend\Gameshop_Backend.csproj", "{3B45F158-9DF1-4521-9A15-0F099425C2DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_Backend", "Gameshop_Backend\Gameshop_Backend.csproj", "{3B45F158-9DF1-4521-9A15-0F099425C2DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webshop_backend", "Webshop_backend\Webshop_backend.csproj", "{6A1782B8-D0F9-4F3F-BE3C-5CF8B59DF712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3B45F158-9DF1-4521-9A15-0F099425C2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B45F158-9DF1-4521-9A15-0F099425C2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B45F158-9DF1-4521-9A15-0F099425C2DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1782B8-D0F9-4F3F-BE3C-5CF8B59DF712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1782B8-D0F9-4F3F-BE3C-5CF8B59DF712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1782B8-D0F9-4F3F-BE3C-5CF8B59DF712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1782B8-D0F9-4F3F-BE3C-5CF8B59DF712}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
