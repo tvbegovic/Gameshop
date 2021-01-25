@@ -36,7 +36,7 @@ namespace Webshop_backend.Db
 		public DateTime DatumNarudzbe { get; set; }
 		public DateTime? DatumIsteka { get; set; }
 		public DateTime? DatumSlanja { get; set; }
-		public String Status { get; set; }
+		public byte Status { get; set; }
 		public Boolean? Online { get; set; }
 		public string Broj { get; set; }
 		public string BrojRacuna { get; set; }
@@ -52,6 +52,9 @@ namespace Webshop_backend.Db
 		public string Opaska { get; set; }
 		public DateTime? VrijemeKreiranja { get; set; }
 		public DateTime? VrijemePromjene { get; set; }
+
+		public Klijent Klijent { get; set; }
+		public List<NarudzbaDetalj> Detalji { get; set; }
 	}
 	public class NarudzbaDetalj
 	{

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Webshop_backend.Db;
+using Microsoft.EntityFrameworkCore;
 
 namespace Webshop_backend.Controllers
 {
@@ -36,5 +37,29 @@ namespace Webshop_backend.Controllers
 				(p.Naziv.Contains(text) || p.Broj.Contains(text) || text == null)
 				).ToList();
 		}
+
+		[HttpPost("")]
+		public Proizvod Create(Proizvod proizvod)
+		{
+			context.Proizvodi.Add(proizvod);
+			context.SaveChanges();
+			return proizvod;
+		}
+
+		[HttpPut("")]
+		public Proizvod Update(Proizvod proizvod)
+		{
+			context.Proizvodi.Update(proizvod);
+			context.SaveChanges();
+			return proizvod;
+		}
+
+		[HttpDelete("{id}")]
+		public void Delete(int id)
+		{
+			context.Database.ExecuteSqlInterpolated($"DELETE FROM Proizvod WHERE idProizvod = {id}");
+		}
+
+
 	}
 }
