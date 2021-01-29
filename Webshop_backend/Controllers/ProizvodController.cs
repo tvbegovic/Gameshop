@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Webshop_backend.Db;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Webshop_backend.Controllers
 {
@@ -22,6 +23,7 @@ namespace Webshop_backend.Controllers
 
 		//Javlja se na api/proizvod
 		[HttpGet("")]
+		[Authorize]
 		public List<Proizvod> GetProizvodi()
 		{
 			return context.Proizvodi.ToList();

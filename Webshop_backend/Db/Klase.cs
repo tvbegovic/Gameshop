@@ -22,6 +22,8 @@ namespace Webshop_backend.Db
 		public int? IdOsoba { get; set; }
 		public int? StoreID { get; set; }
 		public string BrojKlijenta { get; set; }
+
+		public Osoba Osoba { get; set; }
 	}
 	public class ModelProizvoda
 	{
@@ -64,6 +66,8 @@ namespace Webshop_backend.Db
 		public int IdProizvod { get; set; }
 		public decimal JedinicnaCijena { get; set; }
 		public decimal Rabat { get; set; }
+
+		public Proizvod Proizvod { get; set; }
 	}
 	public class Odjel
 	{
@@ -158,14 +162,15 @@ namespace Webshop_backend.Db
 		public string Login { get; set; }
 		public short? Nivo { get; set; }
 		public string Titula { get; set; }
-		public String DatumRodenja { get; set; }
+		public DateTime? DatumRodenja { get; set; }
 		public string BracniStatus { get; set; }
 		public string Spol { get; set; }
-		public String DatumZaposlenja { get; set; }
+		public DateTime? DatumZaposlenja { get; set; }
 		public short SatiGodisnji { get; set; }
 		public short SatiBolovanja { get; set; }
 		public decimal? Placa { get; set; }
 		public string Odjel { get; set; }
+		public string Password { get; set; }
 	}
 	public class ZaposlenikOdjel
 	{

@@ -10,6 +10,7 @@ namespace Webshop_backend.Db
 	{
 		public DbSet<Proizvod> Proizvodi { get; set; }
 		public DbSet<Narudzba> Narudzbe { get; set; }
+		public DbSet<Zaposlenik> Zaposlenici { get; set; }
 
 		public MyDbContext(DbContextOptions options) : base(options)
 		{
@@ -28,9 +29,16 @@ namespace Webshop_backend.Db
 
 			modelBuilder.Entity<Klijent>().ToTable("Klijent");
 			modelBuilder.Entity<Klijent>().HasKey(k => k.IdKlijent);
+			modelBuilder.Entity<Klijent>().HasOne(k => k.Osoba).WithMany().HasForeignKey(k => k.IdOsoba);
 
 			modelBuilder.Entity<NarudzbaDetalj>().ToTable("NarudzbaDetalj");
 			modelBuilder.Entity<NarudzbaDetalj>().HasKey(n => n.IdNarudzbaDetalj);
+			modelBuilder.Entity<NarudzbaDetalj>().HasOne(n => n.Proizvod).WithMany().HasForeignKey(n => n.IdProizvod);
+
+			modelBuilder.Entity<Osoba>().HasKey(o => o.IdOsoba);
+
+			modelBuilder.Entity<Zaposlenik>().ToTable("Zaposlenik");
+			modelBuilder.Entity<Zaposlenik>().HasKey(z => z.IdZaposlenik);
 		}
 	}
 }

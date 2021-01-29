@@ -24,7 +24,8 @@ namespace Webshop_backend.Controllers
 		[HttpGet("{id}")]
 		public Narudzba GetById(int id)
 		{
-			return context.Narudzbe.Include(n => n.Klijent).Include(n => n.Detalji).FirstOrDefault(n => n.IdNarudzba == id);
+			return context.Narudzbe.Include(n => n.Klijent).ThenInclude(k => k.Osoba)
+				.Include(n => n.Detalji).ThenInclude(d => d.Proizvod).FirstOrDefault(n => n.IdNarudzba == id);
 		}
 	}
 }
